@@ -6,20 +6,19 @@ const Books = () => {
   const [books, setBooks] = useState(null);
   const [searchString, setSearchString] = useState("flowers");
 
-  const fetchSearchString = (input) => {
+  const fetchSearchString = (input: string) => {
     setSearchString(input);
   };
 
-  const getBooks = async () => {
-    const response = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${searchString}&maxResults=40`
-    );
-    const data = await response.json();
-
-    setBooks(data.items);
-  };
-
   useEffect(() => {
+    const getBooks = async () => {
+      const response = await fetch(
+        `https://www.googleapis.com/books/v1/volumes?q=${searchString}&maxResults=40`
+      );
+      const data = await response.json();
+
+      setBooks(data.items);
+    };
     if (searchString) {
       getBooks();
     }

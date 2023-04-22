@@ -8,10 +8,12 @@ const BookTable = ({ books }) => {
   const [sortedBooks, setSortedBooks] = useState(books);
   useEffect(() => {
     setSortedBooks(books);
+    console.log(books);
   }, [books]);
 
   const [order, setOrder] = useState("asc");
   const [dateOrder, setDateOrder] = useState("asc");
+  const [authOrder, setAuthOrder] = useState("asc");
   const sortingByTitle = () => {
     if (order === "asc") {
       const sorted = [...books].sort((a, b) =>
@@ -50,15 +52,32 @@ const BookTable = ({ books }) => {
     }
   };
 
+  const sortingByAuthor = () => {
+    if (authOrder === "asc") {
+      const sorted = [...books].sort((a, b) =>
+        a.volumeInfo.authors > b.volumeInfo.authors ? 1 : -1
+      );
+      setSortedBooks(sorted);
+      setAuthOrder("dec");
+    }
+    if (authOrder === "dec") {
+      const sorted = [...books].sort((a, b) =>
+        a.volumeInfo.authors < b.volumeInfo.authors ? 1 : -1
+      );
+      setSortedBooks(sorted);
+      setAuthOrder("asc");
+    }
+  };
+
   return (
     <div>
-      <table>
+      <table className={styles.bookTable}>
         <thead>
           <tr>
             <th onClick={() => sortingByTitle()}>
               <button className={styles.sortButton}>Title</button>
             </th>
-            <th>
+            <th onClick={() => sortingByAuthor()}>
               <button className={styles.sortButton}>Authors</button>
             </th>
             <th onClick={() => sortingByDate()}>
@@ -71,9 +90,27 @@ const BookTable = ({ books }) => {
             sortedBooks.map((result) => {
               return (
                 <tr key={result.id}>
-                  <td> {result.volumeInfo.title} </td>
-                  <td>{result.volumeInfo.authors}</td>
-                  <td>{result.volumeInfo.publishedDate}</td>
+                  <td>
+                    {result.volumeInfo.title ? (
+                      result.volumeInfo.title
+                    ) : (
+                      <em>No Title Found</em>
+                    )}
+                  </td>
+                  <td>
+                    {result.volumeInfo.authors ? (
+                      <p>{result.volumeInfo.authors.join(", ")}</p>
+                    ) : (
+                      <em>Author Unknown</em>
+                    )}
+                  </td>
+                  <td>
+                    {result.volumeInfo.publishedDate ? (
+                      result.volumeInfo.publishedDate
+                    ) : (
+                      <em>Date not found</em>
+                    )}
+                  </td>
                   <td>
                     <button
                       className={styles.sortButton}

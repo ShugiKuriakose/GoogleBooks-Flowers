@@ -6,7 +6,6 @@ export const SearchBar = ({ fetchSearchString }) => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    console.log(InputString);
     fetchSearchString(InputString);
     setInputString("");
   };

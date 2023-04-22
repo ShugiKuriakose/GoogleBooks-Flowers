@@ -5,7 +5,8 @@ export const BookDetails = ({ book }) => {
   const title = book.volumeInfo.title;
   const authors = book.volumeInfo.authors;
   const description = book.volumeInfo.description;
-  let imgsrc = "";
+  let imgsrc =
+    "https://t3.ftcdn.net/jpg/03/34/83/22/360_F_334832255_IMxvzYRygjd20VlSaIAFZrQWjozQH6BQ.jpg";
   if (book.volumeInfo.imageLinks) {
     imgsrc = book.volumeInfo.imageLinks.smallThumbnail;
   }
