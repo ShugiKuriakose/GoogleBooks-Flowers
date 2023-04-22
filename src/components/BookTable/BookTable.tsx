@@ -4,10 +4,10 @@ import BookDetails from "../BookDetails/BookDetails";
 
 const BookTable = ({ books }) => {
   const [currentBook, setCurrentBook] = useState(null);
-  const [sortedBooks, setSortedBooks] = useState(null);
+  const [sortedBooks, setSortedBooks] = useState(books);
   useEffect(() => {
     setSortedBooks(books);
-  }, []);
+  }, [books]);
 
   const [order, setOrder] = useState("asc");
   const [dateOrder, setDateOrder] = useState("asc");
