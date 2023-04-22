@@ -4,6 +4,7 @@
 - Present the fetched data in a table, including book title, authors, and published date.
 - Enable users to view more details of a selected book, such as title, subtitle, authors, image, and description.
 - Sorting books by title, publish date
+- Book search
 
 # The candidates are required to develop a basic front-end application with the following features:
 

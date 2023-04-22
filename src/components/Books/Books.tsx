@@ -1,11 +1,18 @@
 import { useState, useEffect } from "react";
 import BookTable from "../BookTable/BookTable";
+import SearchBar from "../SearchBar/SearchBar";
 
 const Books = () => {
   const [books, setBooks] = useState(null);
+  const [searchString, setSearchString] = useState("flowers");
+
+  const fetchSearchString = (input) => {
+    setSearchString(input);
+  };
+
   const getBooks = async () => {
     const response = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=flowers&maxResults=40`
+      `https://www.googleapis.com/books/v1/volumes?q=${searchString}&maxResults=40`
     );
     const data = await response.json();
 
@@ -13,13 +20,14 @@ const Books = () => {
   };
 
   useEffect(() => {
-    getBooks();
-    console.log(books);
-  }, []);
+    if (searchString) {
+      getBooks();
+    }
+  }, [searchString]);
 
   return (
     <>
-      <h1> Floral Reads</h1>
+      <SearchBar fetchSearchString={fetchSearchString} />
       <BookTable books={books} />
     </>
   );
