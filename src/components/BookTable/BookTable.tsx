@@ -1,23 +1,67 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as ReactModal from "react-modal";
 import BookDetails from "../BookDetails/BookDetails";
 
 const BookTable = ({ books }) => {
   const [currentBook, setCurrentBook] = useState(null);
+  const [sortedBooks, setSortedBooks] = useState(null);
+  useEffect(() => {
+    setSortedBooks(books);
+  }, []);
+
+  const [order, setOrder] = useState("asc");
+  const [dateOrder, setDateOrder] = useState("asc");
+  const sortingByTitle = () => {
+    if (order === "asc") {
+      const sorted = [...books].sort((a, b) =>
+        a.volumeInfo.title.toLowerCase() > b.volumeInfo.title.toLowerCase()
+          ? 1
+          : -1
+      );
+      setSortedBooks(sorted);
+      setOrder("dec");
+    }
+    if (order === "dec") {
+      const sorted = [...books].sort((a, b) =>
+        a.volumeInfo.title.toLowerCase() < b.volumeInfo.title.toLowerCase()
+          ? 1
+          : -1
+      );
+      setSortedBooks(sorted);
+      setOrder("asc");
+    }
+  };
+
+  const sortingByDate = () => {
+    if (dateOrder === "asc") {
+      const sorted = [...books].sort((a, b) =>
+        a.volumeInfo.publishedDate > b.volumeInfo.publishedDate ? 1 : -1
+      );
+      setSortedBooks(sorted);
+      setDateOrder("dec");
+    }
+    if (dateOrder === "dec") {
+      const sorted = [...books].sort((a, b) =>
+        a.volumeInfo.publishedDate < b.volumeInfo.publishedDate ? 1 : -1
+      );
+      setSortedBooks(sorted);
+      setDateOrder("asc");
+    }
+  };
 
   return (
     <div>
       <table>
         <thead>
           <tr>
-            <th>Title</th>
+            <th onClick={() => sortingByTitle()}>Title</th>
             <th>Authors</th>
-            <th>Published Date</th>
+            <th onClick={() => sortingByDate()}>Published Date</th>
           </tr>
         </thead>
         <tbody>
-          {books &&
-            books.map((result) => {
+          {sortedBooks &&
+            sortedBooks.map((result) => {
               return (
                 <tr key={result.id}>
                   <td> {result.volumeInfo.title} </td>

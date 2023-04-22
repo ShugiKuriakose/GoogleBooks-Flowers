@@ -20,10 +20,6 @@ const Books = () => {
   return (
     <>
       <h1> Floral Reads</h1>
-      {/* {books &&
-        books.map((result) => {
-          return <p> {result.volumeInfo.title} </p>;
-        })} */}
       <BookTable books={books} />
     </>
   );
