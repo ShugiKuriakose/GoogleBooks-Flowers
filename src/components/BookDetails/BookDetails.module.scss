@@ -1,0 +1,44 @@
+.BookDetails {
+  @media screen and (max-width: 800px) {
+    width: 300px;
+  }
+  margin: 30px;
+
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+
+  // background-color: rgb(206, 215, 223);
+  background-color: rgb(143, 185, 221);
+  color: black;
+
+  &__image {
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__details {
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    margin-bottom: 8px;
+
+    h3 {
+      text-align: center;
+    }
+    h5 {
+      text-align: center;
+      font-size: 25px;
+    }
+
+    p {
+      text-align: justify;
+    }
+  }
+}
