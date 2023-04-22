@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import * as ReactModal from "react-modal";
 import BookDetails from "../BookDetails/BookDetails";
+import styles from "./BookTable.module.scss";
 
 const BookTable = ({ books }) => {
   const [currentBook, setCurrentBook] = useState(null);
@@ -54,9 +55,15 @@ const BookTable = ({ books }) => {
       <table>
         <thead>
           <tr>
-            <th onClick={() => sortingByTitle()}>Title</th>
-            <th>Authors</th>
-            <th onClick={() => sortingByDate()}>Published Date</th>
+            <th onClick={() => sortingByTitle()}>
+              <button className={styles.sortButton}>Title</button>
+            </th>
+            <th>
+              <button className={styles.sortButton}>Authors</button>
+            </th>
+            <th onClick={() => sortingByDate()}>
+              <button className={styles.sortButton}>Published Date</button>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -69,6 +76,7 @@ const BookTable = ({ books }) => {
                   <td>{result.volumeInfo.publishedDate}</td>
                   <td>
                     <button
+                      className={styles.sortButton}
                       onClick={() => {
                         setCurrentBook(result);
                       }}
