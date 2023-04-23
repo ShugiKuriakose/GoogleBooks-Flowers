@@ -16,6 +16,7 @@ export const SearchBar = ({ fetchSearchString }) => {
         type="text"
         value={InputString}
         onChange={(e) => setInputString(e.target.value)}
+        placeholder="Enter search term"
       ></input>
       <button>Search</button>
     </form>

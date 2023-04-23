@@ -9,9 +9,10 @@
   flex-direction: column;
   height: 700px;
 
-  // background-color: rgb(206, 215, 223);
-  background-color: rgb(143, 185, 221);
-  color: black;
+  // background-color: rgb(194, 174, 194);
+  // color: black;
+  background-color: rgb(32, 3, 3);
+  color: white;
 
   &__image {
     margin: 15px;
@@ -31,6 +32,7 @@
 
     h3 {
       text-align: center;
+      font-size: 35px;
     }
     h5 {
       text-align: center;
@@ -39,6 +41,7 @@
 
     p {
       text-align: justify;
+      font-size: 25px;
     }
   }
 }

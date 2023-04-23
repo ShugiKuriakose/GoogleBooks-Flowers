@@ -73,7 +73,7 @@ const BookTable = ({ books }) => {
     <div>
       <table className={styles.bookTable}>
         <thead>
-          <tr>
+          <tr className={styles.rowHead}>
             <th onClick={() => sortingByTitle()}>
               <button className={styles.sortButton}>Title</button>
             </th>
@@ -83,35 +83,38 @@ const BookTable = ({ books }) => {
             <th onClick={() => sortingByDate()}>
               <button className={styles.sortButton}>Published Date</button>
             </th>
+            <th>
+              <p>Details</p>
+            </th>
           </tr>
         </thead>
         <tbody>
           {sortedBooks &&
             sortedBooks.map((result) => {
               return (
-                <tr key={result.id}>
-                  <td>
+                <tr className={styles.row} key={result.id}>
+                  <td className={styles.title}>
                     {result.volumeInfo.title ? (
                       result.volumeInfo.title
                     ) : (
                       <em>No Title Found</em>
                     )}
                   </td>
-                  <td>
+                  <td className={styles.authors}>
                     {result.volumeInfo.authors ? (
                       <p>{result.volumeInfo.authors.join(", ")}</p>
                     ) : (
                       <em>Author Unknown</em>
                     )}
                   </td>
-                  <td>
+                  <td className={styles.date}>
                     {result.volumeInfo.publishedDate ? (
                       result.volumeInfo.publishedDate
                     ) : (
                       <em>Date not found</em>
                     )}
                   </td>
-                  <td>
+                  <td className={styles.details}>
                     <button
                       className={styles.sortButton}
                       onClick={() => {
@@ -127,6 +130,7 @@ const BookTable = ({ books }) => {
         </tbody>
       </table>
       <ReactModal
+        className={styles.detailsModal}
         appElement={document.getElementById("root") as HTMLElement}
         isOpen={Boolean(currentBook)}
       >

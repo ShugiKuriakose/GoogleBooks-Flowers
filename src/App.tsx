@@ -1,10 +1,11 @@
 import "./App.css";
 import Books from "./components/Books/Books";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
     <>
-      <h1> Floral Reads</h1>
+      <Header />
 
       <Books />
     </>
