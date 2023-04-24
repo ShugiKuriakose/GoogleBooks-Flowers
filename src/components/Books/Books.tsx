@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import BookTable from "../BookTable/BookTable";
 import SearchBar from "../SearchBar/SearchBar";
 import styles from "./Books.module.scss";
+import Book from "../../types/Book";
 
 const Books = () => {
-  const [books, setBooks] = useState(null);
+  const [books, setBooks] = useState<Book[]>([]);
   const [searchString, setSearchString] = useState("flowers");
   const [tableHeading, setTableHeading] = useState(
     "A list of books on flowers"

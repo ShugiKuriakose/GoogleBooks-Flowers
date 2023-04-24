@@ -7,7 +7,7 @@ interface Book {
     description: string;
     infoLink: string;
     imageLinks?: {
-      thumbnail: string;
+      smallThumbnail: string;
     };
     publishedDate: string;
   };

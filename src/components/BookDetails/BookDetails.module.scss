@@ -25,9 +25,7 @@
     padding: 10px;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
+    margin-top: 10px;
     margin-bottom: 8px;
 
     h3 {
@@ -43,5 +41,12 @@
       text-align: justify;
       font-size: 25px;
     }
+  }
+  &__description {
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    margin-bottom: 8px;
   }
 }

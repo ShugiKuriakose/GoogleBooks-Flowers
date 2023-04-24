@@ -1,7 +1,12 @@
 import React from "react";
 import styles from "./BookDetails.module.scss";
+import Book from "../../types/Book";
 
-export const BookDetails = ({ book }) => {
+interface BookDetailsProp {
+  book: Book;
+}
+
+export const BookDetails = ({ book }: BookDetailsProp) => {
   const title = book.volumeInfo.title;
   const authors = book.volumeInfo.authors;
   const description = book.volumeInfo.description;
@@ -23,6 +28,8 @@ export const BookDetails = ({ book }) => {
         <h5>
           {authors ? <em>{book.volumeInfo.authors.join(" , ")}</em> : <em></em>}
         </h5>
+      </div>
+      <div className={styles.BookDetails__description}>
         <p>{description}</p>
       </div>
     </div>

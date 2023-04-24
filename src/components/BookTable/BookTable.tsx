@@ -2,9 +2,14 @@ import { useEffect, useState } from "react";
 import * as ReactModal from "react-modal";
 import BookDetails from "../BookDetails/BookDetails";
 import styles from "./BookTable.module.scss";
+import Book from "../../types/Book";
 
-const BookTable = ({ books }) => {
-  const [currentBook, setCurrentBook] = useState(null);
+interface BookTableProps {
+  books: Book[];
+}
+
+const BookTable = ({ books }: BookTableProps) => {
+  const [currentBook, setCurrentBook] = useState<Book | null>(null);
   const [sortedBooks, setSortedBooks] = useState(books);
   useEffect(() => {
     setSortedBooks(books);
