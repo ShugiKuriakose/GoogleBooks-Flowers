@@ -1,11 +1,16 @@
 .heading {
   h1 {
     // background-color: rgb(194, 174, 194);
-    background-color: rgb(32, 3, 3);
-    color: white;
+    // background-color: rgb(219, 157, 148);
+    background-color: rgba(184, 94, 94, 0.45);
+    color: black;
     margin: auto;
     padding: 10px;
     width: 50%;
-    font-size: 60px;
+    font-size: 80px;
+    border-radius: 22px;
+    text-decoration: underline;
+    text-decoration-color: rgb(219, 157, 148);
+    text-decoration-thickness: 6px;
   }
 }
