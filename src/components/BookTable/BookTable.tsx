@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import * as ReactModal from "react-modal";
+import ReactModal from "react-modal";
 import BookDetails from "../BookDetails/BookDetails";
 import styles from "./BookTable.module.scss";
 import Book from "../../types/Book";
@@ -11,9 +11,9 @@ interface BookTableProps {
 const BookTable = ({ books }: BookTableProps) => {
   const [currentBook, setCurrentBook] = useState<Book | null>(null);
   const [sortedBooks, setSortedBooks] = useState(books);
+
   useEffect(() => {
     setSortedBooks(books);
-    console.log(books);
   }, [books]);
 
   const [order, setOrder] = useState("asc");
@@ -89,7 +89,7 @@ const BookTable = ({ books }: BookTableProps) => {
               <button className={styles.sortButton}>Published Date</button>
             </th>
             <th>
-              <p>Details</p>
+              <p></p>
             </th>
           </tr>
         </thead>

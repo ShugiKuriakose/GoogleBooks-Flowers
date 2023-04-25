@@ -16,12 +16,17 @@ const Books = () => {
 
   useEffect(() => {
     const getBooks = async () => {
-      const response = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${searchString}&maxResults=40`
-      );
-      const data = await response.json();
+      try {
+        const response = await fetch(
+          `https://www.googleapis.com/books/v1/volumes?q=${searchString}&maxResults=40`
+        );
 
-      setBooks(data.items);
+        const data = await response.json();
+
+        setBooks(data.items);
+      } catch (err) {
+        console.log(err.message);
+      }
     };
     if (searchString) {
       getBooks();

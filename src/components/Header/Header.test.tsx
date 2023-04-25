@@ -3,9 +3,13 @@ import { describe, it, expect } from "vitest";
 import Header from "./Header";
 
 describe("Header", () => {
-  it("should display a title ", () => {
+  it("should render without crashing", () => {
     render(<Header />);
-    const title = screen.getByText(/Floral Reads/i);
+  });
+
+  it('should display the title "Floral Reads"', () => {
+    const { getByText } = render(<Header />);
+    const title = getByText("Floral Reads");
     expect(title).toBeInTheDocument();
   });
 });

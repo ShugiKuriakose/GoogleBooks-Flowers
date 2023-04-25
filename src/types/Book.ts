@@ -1,4 +1,5 @@
 interface Book {
+  id: string;
   volumeInfo: {
     title: string;
     categories?: string[];

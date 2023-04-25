@@ -1,10 +1,15 @@
+import React from "react";
 import { useState } from "react";
 import styles from "./SearchBar.module.scss";
 
-export const SearchBar = ({ fetchSearchString }) => {
-  const [InputString, setInputString] = useState("");
+interface SearchBarProps {
+  fetchSearchString: (query: string) => void;
+}
 
-  const onFormSubmit = (event) => {
+export const SearchBar = ({ fetchSearchString }: SearchBarProps) => {
+  const [InputString, setInputString] = useState<string>("");
+
+  const onFormSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     fetchSearchString(InputString);
     setInputString("");
