@@ -21,8 +21,8 @@
 
 ## Build Steps
 
-- how to build / run project
-- use proper code snippets if there are any commands to run
+- npm install
+- npm run dev
 
 ---
 
@@ -46,27 +46,22 @@
 
 ## Known issues
 
-- Tests
+- Sorting has errors because of missing information in the fetched data.
 
 ---
 
 ## Future Goals
 
+- Implement data cleaning to fix errors in sorting.
 - Add more tests to ensure robust performance
 
 ---
 
 ## What did you struggle with?
 
-- What? Why? How?
+- The challenging part of this project was writing tests for each component because of lack of experience in this area.
 
 ---
-
-# IMPORTANT
-
-- Deploy to github
-- Document everything clearly
-- Make sure you add tests
 
 # Technology
 
