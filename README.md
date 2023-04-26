@@ -37,7 +37,7 @@
 - The data is presented in a table which includes the book title, authors, and published date. The fetched data in some cases have missing information. For example the author or published date may be missing. App handles the missing data by displaying error messages to let the user know that the information is not available. 
 - The table headings are clickable and provides sorting functionality. Books can be sorted by title, author and published date. By default the sort order is ascending. The sort order alternates between ascending and descending with each click.
 
-- The 'More Info' button enables users to view more details. Clicking on the button opens a modal which displays the details of the selected books. Image, title author and description of the books are displayed in the modal. A default image source is used for books with missing image links. If the book's title or author(s) are missing, an empty tag id rendered. This ensures that the layout of the book details remains consistent regardless of whether all the details are present or not.The close button is provided to close the modal and return to the main page. 
+- The 'More Info' button enables users to view more details. Clicking on the button opens a modal which displays the details of the selected books. Image, title author and description of the books are displayed in the modal. A default image source is used for books with missing image links. If the book's title or author(s) are missing, an empty tag is rendered. This ensures that the layout of the book details remains consistent regardless of whether all the details are present or not.The close button is provided to close the modal and return to the main page. 
 
 - In case the user wants to search for books on specific flowers or any other details, the app has a book search form. Book search form enables user to enter search queries and displays the fetched results in the table. In case of search returning no results, a message is displayed to let the user know that no books were found for the particular search.
 
@@ -45,13 +45,15 @@
 
 ## Known issues
 
-- Sorting has errors because of missing information in the fetched data.
+- The fetched data has missing values for some of the fields and this results in errors while sorting the data. Currently the app displays missing fields with "Author unknown" or "Date not found". Sort feature needs to be fixed to take into account the missing data fields in the fetched data while sorting the results.
+- Testing has not been implemented for all the features. 
 
 ---
 
 ## Future Goals
 
 - Implement data cleaning to fix errors in sorting.
+- Improve the sort function to take into account the results with missing data. 
 - Add more tests to ensure robust performance
 
 ---
