@@ -10,8 +10,10 @@ const Books = () => {
   const [tableHeading, setTableHeading] = useState(
     "A list of books on flowers"
   );
+  const [error, setError] = useState<string | null>(null);
   const fetchSearchString = (input: string) => {
     setSearchString(input);
+    setError(null);
   };
 
   useEffect(() => {
@@ -26,6 +28,7 @@ const Books = () => {
         setBooks(data.items);
       } catch (err) {
         console.log(err.message);
+        setError("An error occurred while fetching data.");
       }
     };
     if (searchString) {
@@ -36,14 +39,34 @@ const Books = () => {
     }
   }, [searchString]);
 
-  return (
-    <>
-      <SearchBar fetchSearchString={fetchSearchString} />
-      <hr></hr>
-      <h2 className={styles.tableheading}>{tableHeading}</h2>
-      <BookTable books={books} />
-    </>
-  );
+  if (books.length != 0) {
+    return (
+      <>
+        <SearchBar fetchSearchString={fetchSearchString} />
+        <hr></hr>
+        <h2 className={styles.tableheading}>{tableHeading}</h2>
+        <BookTable books={books} />
+      </>
+    );
+  } else if (error) {
+    return (
+      <>
+        <SearchBar fetchSearchString={fetchSearchString} />
+        <hr></hr>
+        <h2 className={styles.tableheading}>{tableHeading}</h2>
+        <h2 className={styles.tableheading}>{error}</h2>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <SearchBar fetchSearchString={fetchSearchString} />
+        <hr></hr>
+        <h2 className={styles.tableheading}>{tableHeading}</h2>
+        <h2 className={styles.tableheading}>"No Books Found...."</h2>
+      </>
+    );
+  }
 };
 
 export default Books;
