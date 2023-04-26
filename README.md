@@ -40,6 +40,7 @@
 - The 'More Info' button enables users to view more details. Clicking on the button opens a modal which displays the details of the selected books. Image, title author and description of the books are displayed in the modal. A default image source is used for books with missing image links. If the book's title or author(s) are missing, an empty tag is rendered. This ensures that the layout of the book details remains consistent regardless of whether all the details are present or not.The close button is provided to close the modal and return to the main page. 
 
 - In case the user wants to search for books on specific flowers or any other details, the app has a book search form. Book search form enables user to enter search queries and displays the fetched results in the table. In case of search returning no results, a message is displayed to let the user know that no books were found for the particular search.
+- React testing library was used to test each component of the application to ensure that the behavior of the components in relation to user interaction and its response is as per the expectations.
 
 ---
 
