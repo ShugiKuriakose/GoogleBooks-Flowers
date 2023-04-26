@@ -30,18 +30,16 @@
 
 - Single page react application with a header, search form and table to display the search results.
 
-- Floral background and colors were used to match the theme as the main purpose of the app is to display flower related books.
+- The main purpose of the app is to display flower related books so a floral background and colors were used to match the theme. 
 
-- The landing page of the application consists of a table that fetches and displays a list of books related to flowers from the following REST API: https://www.googleapis.com/books/v1/volumes?q=flowers by default. If an error occurs while fetching data, the user will see a message indicating that an error has occurred, rather than the application appearing to do nothing. In case of search returning no results, a message is displayed to let the user know that no books were found for the particular search.  
+- The landing page of the application consists of a table that fetches and displays a list of books related to flowers from the following REST API: https://www.googleapis.com/books/v1/volumes?q=flowers by default. If an error occurs while fetching data, the user will see a message indicating that an error has occurred, rather than the application appearing to do nothing. 
 
 - The data is presented in a table which includes the book title, authors, and published date. The fetched data in some cases have missing information. For example the author or published date may be missing. App handles the missing data by displaying error messages to let the user know that the information is not available. 
 - The table headings are clickable and provides sorting functionality. Books can be sorted by title, author and published date. By default the sort order is ascending. The sort order alternates between ascending and descending with each click.
 
-- The 'More Info' button enables users to view more details of a selected book such as title, image and description. Clicking on the button opens a modal which displays the details of the selected books.
+- The 'More Info' button enables users to view more details. Clicking on the button opens a modal which displays the details of the selected books. Image, title author and description of the books are displayed in the modal. A default image source is used for books with missing image links. If the book's title or author(s) are missing, an empty tag id rendered. This ensures that the layout of the book details remains consistent regardless of whether all the details are present or not.The close button is provided to close the modal and return to the main page. 
 
-- The table headings are clickable and provides sorting functionality. Books can be sorted by title, author and published date by clicking on the table headings.
-
-- Book search feature enables user to search for books and displays the fetched results in the table.
+- In case the user wants to search for books on specific flowers or any other details, the app has a book search form. Book search form enables user to enter search queries and displays the fetched results in the table. In case of search returning no results, a message is displayed to let the user know that no books were found for the particular search.
 
 ---
 
