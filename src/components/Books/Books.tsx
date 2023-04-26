@@ -11,6 +11,7 @@ const Books = () => {
     "A list of books on flowers"
   );
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
   const fetchSearchString = (input: string) => {
     setSearchString(input);
     setError(null);
@@ -26,14 +27,16 @@ const Books = () => {
         const data = await response.json();
 
         setBooks(data.items);
+        setLoading(false);
       } catch (err) {
         console.log(err.message);
-        setError("An error occurred while fetching data.");
+        setError("An error occurred while fetching data....");
+        setLoading(false);
       }
     };
     if (searchString) {
       getBooks();
-      if (searchString != "flowers") {
+      if (searchString != "flowers" && books.length != 0) {
         setTableHeading(`Search results for "${searchString}" `);
       }
     }
@@ -48,22 +51,19 @@ const Books = () => {
         <BookTable books={books} />
       </>
     );
-  } else if (error) {
-    return (
-      <>
-        <SearchBar fetchSearchString={fetchSearchString} />
-        <hr></hr>
-        <h2 className={styles.tableheading}>{tableHeading}</h2>
-        <h2 className={styles.tableheading}>{error}</h2>
-      </>
-    );
   } else {
     return (
       <>
         <SearchBar fetchSearchString={fetchSearchString} />
         <hr></hr>
         <h2 className={styles.tableheading}>{tableHeading}</h2>
-        <h2 className={styles.tableheading}>"No Books Found...."</h2>
+        {loading ? (
+          <h2>Loading....</h2>
+        ) : error ? (
+          <h2 className={styles.tableheading}>{error}</h2>
+        ) : (
+          <h2 className={styles.tableheading}>"No Books Found...."</h2>
+        )}
       </>
     );
   }
