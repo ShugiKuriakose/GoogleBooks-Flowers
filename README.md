@@ -32,7 +32,7 @@
 
 - The main purpose of the app is to display flower related books so a floral background and colors were used to match the theme. 
 
-- The landing page of the application consists of a table that fetches and displays a list of books related to flowers from the following REST API: https://www.googleapis.com/books/v1/volumes?q=flowers by default. If an error occurs while fetching data, the user will see a message indicating that an error has occurred, rather than the application appearing to do nothing. 
+- The main page of the application consists of a table that fetches and displays a list of books related to flowers from the following REST API: https://www.googleapis.com/books/v1/volumes?q=flowers by default. If an error occurs while fetching data, the user will see a message indicating that an error has occurred, rather than the application appearing to do nothing. 
 
 - The data is presented in a table which includes the book title, authors, and published date. The fetched data in some cases have missing information. For example the author or published date may be missing. App handles the missing data by displaying error messages to let the user know that the information is not available. 
 - The table headings are clickable and provides sorting functionality. Books can be sorted by title, author and published date. By default the sort order is ascending. The sort order alternates between ascending and descending with each click.
